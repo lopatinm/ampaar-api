@@ -87,7 +87,8 @@ $config = [
                     'pluralize' => false,
                     'controller' => [
                         'v1/user',
-                        'v1/category'
+                        'v1/category',
+                        'v1/product'
                     ],
                     'extraPatterns' => [
                         'POST login' => 'login',
