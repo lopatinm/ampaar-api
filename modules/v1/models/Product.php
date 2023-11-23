@@ -14,6 +14,7 @@ use yii\web\HttpException;
  * @property string $name
  * @property int $category_id
  * @property int $count
+ * @property int $user_id
  *
  */
 class Product extends ActiveRecord
@@ -32,9 +33,9 @@ class Product extends ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'user_id'], 'required'],
             [['name'], 'string', 'max' => 255],
-            [['category_id', 'count'], 'integer'],
+            [['category_id', 'count', 'user_id'], 'integer'],
         ];
     }
 
@@ -48,6 +49,7 @@ class Product extends ActiveRecord
             'name' => 'Name',
             'category_id' => 'Category id',
             'count' => 'Count',
+            'user_id' => 'User id',
         ];
     }
 

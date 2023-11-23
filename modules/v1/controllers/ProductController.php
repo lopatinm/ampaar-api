@@ -25,7 +25,7 @@ class ProductController extends ActiveController
             ],
         ]);
         $behaviors['authenticator']['class'] = HttpBearerAuth::className();
-        $behaviors['authenticator']['only'] = ['create', 'update', 'delete'];
+        $behaviors['authenticator']['only'] = ['create', 'update', 'delete', 'index'];
 
         return $behaviors;
     }
@@ -40,8 +40,9 @@ class ProductController extends ActiveController
     public function actionIndex()
     {
         $model = new Product;
+        $user_id = Yii::$app->user->identity['id'];
         $activeData = new ActiveDataProvider([
-            'query' => $model::find()->orderBy("id DESC"),
+            'query' => $model::find()->where(array('user_id' => $user_id))->orderBy("id DESC"),
             'pagination' => [
                 'defaultPageSize' => -1,
                 'pageSizeLimit' => -1,
