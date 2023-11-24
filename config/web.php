@@ -88,7 +88,8 @@ $config = [
                     'controller' => [
                         'v1/user',
                         'v1/category',
-                        'v1/product'
+                        'v1/product',
+                        'v1/barter'
                     ],
                     'extraPatterns' => [
                         'POST login' => 'login',
